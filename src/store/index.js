@@ -30,12 +30,23 @@ export const useList = defineStore('list', {
           gender: 0,
         },
       ],
+      counts:5
     };
   },
-  actions: {},
+  actions: {
+    addCount() {
+      this.counts++
+    }
+  },
   getters: {
     listFiltered(state) {
       return state.list.slice(0, 2);
     },
+    doubleCount(state) {
+      return state.counts * 2;
+    },
+    sixTimeCount() {
+      return this.doubleCount * 3;
+    }
   },
 });
